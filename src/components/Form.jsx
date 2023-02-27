@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../slices/login';
 
 const Form = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({});
@@ -18,7 +20,7 @@ const Form = () => {
     e.preventDefault();
     const formError = {};
 
-    if (name !== userName && userName !== null) {
+    if (name !== userName.username && userName !== null) {
       formError.name = 'Username does not match!!';
     }
 
@@ -26,6 +28,7 @@ const Form = () => {
     if (Object.keys(formError).length === 0) {
       // Submit form
       dispatch(login(name));
+      navigate('/home');
     }
     // const data = {
     //   username: name,

@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../slices/login';
 
 const Form2 = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
 
@@ -18,6 +20,7 @@ const Form2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login(name));
+    navigate('/home');
     clearField();
   };
 
