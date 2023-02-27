@@ -11,16 +11,21 @@ const Form2 = () => {
     setName(e.target.value);
   };
 
+  const clearField = () => {
+    setName('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(login(name));
+    clearField();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control"
+          className="form-control p-2"
           placeholder="Enter your name"
           name="username"
           id="username"
@@ -31,9 +36,9 @@ const Form2 = () => {
         />
       </div>
       <input
-        className="btn btn-primary mt-3 w-100"
+        className="btn btn-primary mt-3 w-100 p-2"
         type="submit"
-        value="LOG IN"
+        value="SIGN UP"
       />
     </form>
   );
