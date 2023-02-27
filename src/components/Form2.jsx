@@ -3,33 +3,17 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../slices/login';
 
-const Form = () => {
+const Form2 = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setName(e.target.value);
   };
 
-  const userName = JSON.parse(localStorage.getItem('username'));
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formError = {};
-
-    if (name !== userName && userName !== null) {
-      formError.name = 'Username does not match!!';
-    }
-
-    setErrors(formError);
-    if (Object.keys(formError).length === 0) {
-      // Submit form
-      dispatch(login(name));
-    }
-    // const data = {
-    //   username: name,
-    // };
+    dispatch(login(name));
   };
 
   return (
@@ -45,7 +29,6 @@ const Form = () => {
           onChange={(e) => handleChange(e)}
           type="text"
         />
-        {errors.name && <span className="error">{errors.name}</span>}
       </div>
       <input
         className="btn btn-primary mt-3 w-100"
@@ -56,4 +39,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Form2;
