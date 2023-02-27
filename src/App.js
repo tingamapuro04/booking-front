@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
+import Registration from './components/Registration';
 
 function App() {
   return (
-    <div />
+    <div>
+      <Registration />
+    </div>
   );
 }
 
