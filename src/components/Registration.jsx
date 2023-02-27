@@ -3,7 +3,7 @@ import Login from './Login';
 import ShortDesc from './ShortDesc';
 
 const Registration = () => (
-  <div className="container-fluid m-4 border d-flex justify-content-space-between">
+  <div className="container mt-4 w-75 m-auto d-flex justify-content-space-around">
     <Login />
     <ShortDesc />
   </div>

@@ -21,17 +21,18 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input
-        className="form-control"
-        placeholder="Enter your name"
-        name="username"
-        id="username"
-        value={name}
-        onChange={(e) => handleChange(e)}
-        type="text"
-      />
-      <input className="btn btn-primary" type="submit" value="Submit" />
+      <div className="mb-3">
+        <input
+          className="form-control"
+          placeholder="Enter your name"
+          name="username"
+          id="username"
+          value={name}
+          onChange={(e) => handleChange(e)}
+          type="text"
+        />
+      </div>
+      <input className="btn btn-primary mt-3 w-100" type="submit" value="LOG IN" />
     </form>
   );
 };

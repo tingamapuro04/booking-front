@@ -4,7 +4,7 @@ import Registration from './components/Registration';
 
 function App() {
   return (
-    <div>
+    <div className=" w-100 p-4">
       <Registration />
     </div>
   );
