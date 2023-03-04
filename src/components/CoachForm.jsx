@@ -16,6 +16,11 @@ const CoachForm = () => {
   };
 
   const handleSubmit = (e) => {
+    const data = new FormData();
+    data.append('coach[name]', name);
+    data.append('coach[description]', description);
+    data.append('coach[city]', city);
+    data.append('coach[image]', image);
     e.preventDefault();
     fetch('http://localhost:3001/coaches',
       {
@@ -23,14 +28,7 @@ const CoachForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          coach: {
-            name,
-            description,
-            city,
-            image,
-          },
-        }),
+        body: data,
       })
       .then((response) => {
         if (response.ok) {

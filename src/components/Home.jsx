@@ -5,7 +5,6 @@ import Coaches from './Coaches';
 
 const Home = () => {
   const coaches = useSelector((state) => state.allcoaches.data);
-  console.log(coaches);
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(-1);
