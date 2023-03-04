@@ -1,59 +1,84 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../slices/login';
 
 const Form = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [errors, setErrors] = useState({});
+  // const dispatch = useDispatch();
+  // const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    setName(e.target.value);
+  // const handleChange = (e) => {
+  //   setName(e.target.value);
+  // };
+
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
   };
-
-  const userName = JSON.parse(localStorage.getItem('username'));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formError = {};
-
-    if (name !== userName.username && userName !== null) {
-      formError.name = 'Username does not match!!';
-    }
-
-    setErrors(formError);
-    if (Object.keys(formError).length === 0) {
-      // Submit form
-      dispatch(login(name));
-      navigate('/home');
-    }
-    // const data = {
-    //   username: name,
-    // };
+    fetch(
+      'http://localhost:3001/sessions',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: {
+            email,
+            password,
+          },
+        }),
+      },
+      { withCredentials: true },
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then((response) => {
+        // handleSuccessfulAuth(response);
+        navigate('/home');
+        console.log(response);
+      })
+      .catch((error) => console.log(error.message));
+    resetForm();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control"
-          placeholder="Enter your name"
+          className="form-control p-2"
+          placeholder="Enter your email address"
           name="username"
           id="username"
           required
-          value={name}
-          onChange={(e) => handleChange(e)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="text"
         />
-        {errors.name && <span className="error">{errors.name}</span>}
+        <input
+          type="password"
+          name="password"
+          className="form-control p-2"
+          required
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
       <input
-        className="btn btn-primary mt-3 w-100"
+        className="btn btn-primary mt-3 w-100 p-2"
         type="submit"
-        value="LOG IN"
+        value="LOGIN"
       />
     </form>
   );

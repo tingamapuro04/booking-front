@@ -11,9 +11,6 @@ const Login = () => (
     <div className="container mt-5 d-flex justify-content-evenly align-items-center">
       <p className="fs-4">Dont Have an account yet?</p>
 
-      {/* <a href="http://localhost:3000/" className="link-info fs-4">
-        Sign Up
-      </a> */}
       <Link to="/signup">SIGN UP</Link>
     </div>
   </div>

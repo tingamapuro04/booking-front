@@ -1,27 +1,58 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../slices/login';
 
 const Form2 = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [name, setName] = useState('');
+  // const dispatch = useDispatch();
+  // const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   setName(e.target.value);
+  // };
 
-  const clearField = () => {
-    setName('');
+  const resetForm = () => {
+    setEmail('');
+    setPassword('');
+    setPasswordConfirmation('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(name));
-    navigate('/home');
-    clearField();
+    fetch(
+      'http://localhost:3001/registrations',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: {
+            email,
+            password,
+            password_confirmation: passwordConfirmation,
+          },
+        }),
+      },
+      { withCredentials: true },
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then((response) => {
+        // handleSuccessfulAuth(response);
+        navigate('/home');
+        console.log(response);
+      })
+      .catch((error) => console.log(error.message));
+    resetForm();
   };
 
   return (
@@ -29,13 +60,31 @@ const Form2 = () => {
       <div className="mb-3">
         <input
           className="form-control p-2"
-          placeholder="Enter your name"
+          placeholder="Enter your email address"
           name="username"
           id="username"
           required
-          value={name}
-          onChange={(e) => handleChange(e)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           type="text"
+        />
+        <input
+          type="password"
+          name="password"
+          className="form-control p-2"
+          required
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          name="passwordConfirmation"
+          placeholder="Password Confirmation"
+          className="form-control p-2"
+          value={passwordConfirmation}
+          required
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
       </div>
       <input

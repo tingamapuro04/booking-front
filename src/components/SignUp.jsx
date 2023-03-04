@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Form2 from './Form2';
 // import ShortDesc from './ShortDesc';
 
@@ -8,6 +9,12 @@ const SignUp = () => (
     <p>Please sign up to get your mentor today</p>
     <div className="w-50 mx-auto my-5">
       <Form2 />
+    </div>
+
+    <div className="container mt-5 d-flex justify-content-evenly align-items-center">
+      <p className="fs-4">Dont Have an account yet?</p>
+
+      <Link to="/">SIGN UP</Link>
     </div>
   </div>
 );
