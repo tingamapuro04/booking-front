@@ -68,6 +68,9 @@ const Form2 = () => {
           onChange={(e) => setEmail(e.target.value)}
           type="text"
         />
+        <div id="emailHelp" className="form-text">
+          We&apos;ll never share your email with anyone else.
+        </div>
         <input
           type="password"
           name="password"
