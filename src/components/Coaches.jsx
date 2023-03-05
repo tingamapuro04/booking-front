@@ -3,16 +3,15 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CoachForm from './CoachForm';
-import { addCoach, getOneCoach } from '../slices/coach';
+import { addCoach, navigate } from '../slices/coach';
 
 const Coaches = () => {
   const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
 
   const handleClick = (e) => () => {
-    getOneCoach(e);
     dispatch(addCoach(e));
-    console.log(e);
+    navigate(e);
   };
 
   return (

@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux';
 import Registration from './components/Registration';
 import Home from './components/Home';
 import NoPage from './components/NoPage';
+import Coaches from './components/Coaches';
 import SignUp from './components/SignUp';
+import Coach from './components/Coach';
 import { getCoachData } from './slices/allSlice';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={<Registration />} />
         <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/coaches" element={<Coaches />} />
+        <Route path="/coaches/:id" element={<Coach />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
