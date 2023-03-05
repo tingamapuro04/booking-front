@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import CoachForm from './CoachForm';
+import { addCoach, getOneCoach } from '../slices/coach';
 
 const Coaches = () => {
+  const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
 
   const handleClick = (e) => () => {
+    getOneCoach(e);
+    dispatch(addCoach(e));
     console.log(e);
   };
 

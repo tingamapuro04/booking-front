@@ -1,26 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const users = localStorage.getItem('current_user') !== null
-  ? JSON.parse(localStorage.getItem('current_user'))
+export const getOneCoach = createAsyncThunk('coaches/coach', async (payload) => {
+  const response = await fetch(`http://localhost:3001/coaches/${payload.id}.json`);
+  const data = await response.json();
+  return data;
+});
+
+const coachOne = localStorage.getItem('current_coach') !== null
+  ? JSON.parse(localStorage.getItem('current_coach'))
   : {};
 
-const userSlice = createSlice({
-  name: 'Users',
+const coachSlice = createSlice({
+  name: 'coach',
   initialState: {
     status: 'idle',
-    data: users,
+    data: coachOne,
     error: null,
   },
   reducers: {
-    addUser: (state, action) => {
+    addCoach: (state, action) => {
       let newState = state;
       newState = action.payload;
-      localStorage.setItem('current_user', JSON.stringify(newState));
+      localStorage.setItem('current_coach', JSON.stringify(newState));
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getOneCoach.pending, (state) => {
+        const newState = state;
+        newState.status = 'loading';
+      })
+      .addCase(getOneCoach.fulfilled, (state, action) => {
+        const newState = state;
+        newState.status = 'succeeded';
+        newState.data = action.payload;
+      })
+      .addCase(getOneCoach.rejected, (state, action) => {
+        const newState = state;
+        newState.status = 'failed';
+        newState.error = action.error.message;
+      });
   },
 });
 
-export const { addUser } = userSlice.actions;
+export const { addCoach } = coachSlice.actions;
 
-const user = userSlice.reducer;
-export default user;
+const coach = coachSlice.reducer;
+export default coach;
