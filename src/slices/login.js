@@ -1,26 +1,26 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const getUserData = createAsyncThunk('user/coaches', async () => {
-  const response = await fetch('http://localhost:3001/logged_in');
-  const data = await response.json();
-  return data;
-});
+const users = localStorage.getItem('current_user') !== null
+  ? JSON.parse(localStorage.getItem('current_user'))
+  : {};
 
 const userSlice = createSlice({
-  name: 'coaches',
+  name: 'Users',
   initialState: {
     status: 'idle',
-    data: {},
+    data: users,
     error: null,
   },
   reducers: {
     addUser: (state, action) => {
       let newState = state;
       newState = action.payload;
-      localStorage.setItem('mobutu', JSON.stringify(newState));
+      localStorage.setItem('current_user', JSON.stringify(newState));
     },
   },
 });
+
+export const { addUser } = userSlice.actions;
 
 const user = userSlice.reducer;
 export default user;

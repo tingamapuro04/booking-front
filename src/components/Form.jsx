@@ -1,18 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // const handleChange = (e) => {
-  //   setName(e.target.value);
-  // };
 
   const resetForm = () => {
     setEmail('');
@@ -44,7 +37,6 @@ const Form = () => {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
-        // handleSuccessfulAuth(response);
         navigate('/home');
       })
       .catch((error) => console.log(error.message));
