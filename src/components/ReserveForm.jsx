@@ -1,6 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+const par = localStorage.getItem('curr_coach') !== null
+  ? JSON.parse(localStorage.getItem('curr_coach'))
+  : {};
+
 const ReserveForm = () => {
   const currUser = useSelector((state) => state.current_user.data);
   const userId = currUser.id;
@@ -9,7 +13,7 @@ const ReserveForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      'http://localhost:3001/coaches/16/reservations',
+      `http://localhost:3001/coaches/${par.id}/reservations`,
       {
         method: 'POST',
         headers: {

@@ -9,6 +9,7 @@ import Coaches from './components/Coaches';
 import SignUp from './components/SignUp';
 import Coach from './components/Coach';
 import { getCoachData } from './slices/allSlice';
+import ReserveForm from './components/ReserveForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/coaches" element={<Coaches />} />
         <Route path="/coaches/:id" element={<Coach />} />
+        <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </BrowserRouter>
