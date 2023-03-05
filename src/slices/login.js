@@ -1,19 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const name = localStorage.getItem('username') !== null ? JSON.parse(localStorage.getItem('username')) : {};
+export const getUserData = createAsyncThunk('user/coaches', async () => {
+  const response = await fetch('http://localhost:3001/logged_in');
+  const data = await response.json();
+  return data;
+});
 
-const loginSlice = createSlice({
-  name: 'login',
-  initialState: name,
+const userSlice = createSlice({
+  name: 'coaches',
+  initialState: {
+    status: 'idle',
+    data: {},
+    error: null,
+  },
   reducers: {
-    login: (state, action) => {
-      const newState = state;
-      newState.username = action.payload;
-      localStorage.setItem('username', JSON.stringify(newState));
+    addUser: (state, action) => {
+      let newState = state;
+      newState = action.payload;
+      localStorage.setItem('mobutu', JSON.stringify(newState));
     },
   },
 });
 
-export const { login } = loginSlice.actions;
-const loginRed = loginSlice.reducer;
-export default loginRed;
+const user = userSlice.reducer;
+export default user;

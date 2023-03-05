@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginRed from '../slices/login';
 import coaches from '../slices/allSlice';
+import user from '../slices/login';
 
 const store = configureStore({
   reducer: {
-    login: loginRed,
+    current_user: user,
     allcoaches: coaches,
   },
 });

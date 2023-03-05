@@ -46,10 +46,9 @@ const Form2 = () => {
         }
         throw new Error('Network response was not ok.');
       })
-      .then((response) => {
+      .then(() => {
         // handleSuccessfulAuth(response);
         navigate('/home');
-        console.log(response);
       })
       .catch((error) => console.log(error.message));
     resetForm();
