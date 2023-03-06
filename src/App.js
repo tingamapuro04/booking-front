@@ -5,12 +5,14 @@ import { useDispatch } from 'react-redux';
 import Registration from './components/Registration';
 import Home from './components/Home';
 import NoPage from './components/NoPage';
+
 import Coaches from './components/Coaches';
 import SignUp from './components/SignUp';
 import Coach from './components/Coach';
 import { getCoachData } from './slices/allSlice';
 import ReserveForm from './components/ReserveForm';
 import Layout from './components/Layout';
+import CoachForm from './components/CoachForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +29,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/coaches" element={<Coaches />} />
           <Route path="/coaches/:id" element={<Coach />} />
+          <Route path="/coaches/post_coach" element={<CoachForm />} />
           <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
           <Route path="*" element={<NoPage />} />
         </Routes>

@@ -1,6 +1,7 @@
 .navigation {
   width: 18%;
   background: red;
+  position: relative;
 }
 
 .layout {
@@ -9,13 +10,15 @@
   margin: 1px;
   padding: 0;
   background: blue;
+  height: 100vh;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  /* text-align: center; */
   margin-top: 35%;
+  margin-left: 10%;
 }
 
 .nav_link {
@@ -27,5 +30,20 @@
   display: block;
   color: #fff;
   text-decoration: none;
-  margin-left: 8%;
+}
+
+.social {
+  position: absolute;
+  margin-left: 10%;
+  bottom: 3.5%;
+}
+
+.my-icon {
+  font-size: 1.3rem;
+  margin-right: 3%;
+}
+
+.foot {
+  margin-top: 14%;
+  font-weight: 550;
 }

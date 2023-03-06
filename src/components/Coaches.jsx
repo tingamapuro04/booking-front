@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CoachForm from './CoachForm';
 import { addCoach, navigate } from '../slices/coach';
 
 const Coaches = () => {
@@ -16,7 +15,7 @@ const Coaches = () => {
 
   return (
     <>
-      <div>
+      <div className="allCoaches">
         {coaches.map((coach) => (
           <div
             className="container shadow-lg bg-body-tertiary border mb-2 pl-2 pt-3 text-bg-light rounded"
@@ -34,10 +33,10 @@ const Coaches = () => {
           </div>
         ))}
       </div>
-      <div>
+      {/* <div>
         <h3>Add a new coach</h3>
         <CoachForm />
-      </div>
+      </div> */}
     </>
   );
 };
