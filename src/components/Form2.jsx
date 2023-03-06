@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addUser } from '../slices/login';
+// import { useDispatch } from 'react-redux';
+// import { addUser } from '../slices/login';
 
 const Form2 = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
+  // const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const resetForm = () => {
-    setEmail('');
+    setName('');
+    setUsername('');
     setPassword('');
     setPasswordConfirmation('');
   };
@@ -20,18 +22,17 @@ const Form2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      'http://localhost:3001/registrations',
+      'https://booking-app-7i9f.onrender.com/api/v1/signup',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user: {
-            email,
-            password,
-            password_confirmation: passwordConfirmation,
-          },
+          name,
+          username,
+          password,
+          password_confirmation: passwordConfirmation,
         }),
       },
       { withCredentials: true },
@@ -43,7 +44,8 @@ const Form2 = () => {
         throw new Error('Network response was not ok.');
       })
       .then((response) => {
-        dispatch(addUser(response.user));
+        // dispatch(addUser(response.user));
+        console.log(response);
         navigate('/home');
       })
       .catch((error) => console.log(error.message));
@@ -55,17 +57,25 @@ const Form2 = () => {
       <div className="mb-3">
         <input
           className="form-control p-2"
-          placeholder="Enter your email address"
+          placeholder="Enter your name"
           name="username"
           id="username"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           type="text"
         />
-        <div id="emailHelp" className="form-text">
-          We&apos;ll never share your email with anyone else.
-        </div>
+
+        <input
+          className="form-control p-2"
+          placeholder="Enter your username"
+          name="username"
+          id="username"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          type="text"
+        />
         <input
           type="password"
           name="password"

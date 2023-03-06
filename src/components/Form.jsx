@@ -15,17 +15,15 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      'http://localhost:3001/sessions',
+      'https://booking-app-7i9f.onrender.com/api/v1/login',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user: {
-            email,
-            password,
-          },
+          email,
+          password,
         }),
       },
       { withCredentials: true },
@@ -37,6 +35,7 @@ const Form = () => {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
+        console.log(response)
         navigate('/home');
       })
       .catch((error) => console.log(error.message));
