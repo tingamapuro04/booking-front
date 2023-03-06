@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const par = localStorage.getItem('curr_coach') !== null
   ? JSON.parse(localStorage.getItem('curr_coach'))
@@ -7,6 +8,7 @@ const par = localStorage.getItem('curr_coach') !== null
 
 const ReserveForm = () => {
   const currUser = useSelector((state) => state.current_user.data);
+  const navigate = useNavigate();
   const userId = currUser.id;
   const userEmail = currUser.email;
 
@@ -33,8 +35,8 @@ const ReserveForm = () => {
         }
         throw new Error('Network response was not ok.');
       })
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        navigate(-1);
       })
       .catch((error) => console.log(error.message));
   };

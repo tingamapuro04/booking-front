@@ -10,6 +10,7 @@ import SignUp from './components/SignUp';
 import Coach from './components/Coach';
 import { getCoachData } from './slices/allSlice';
 import ReserveForm from './components/ReserveForm';
+import Layout from './components/Layout';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,15 +20,17 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Registration />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/coaches" element={<Coaches />} />
-        <Route path="/coaches/:id" element={<Coach />} />
-        <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
-        <Route path="*" element={<NoPage />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Registration />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/coaches" element={<Coaches />} />
+          <Route path="/coaches/:id" element={<Coach />} />
+          <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
+          <Route path="*" element={<NoPage />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

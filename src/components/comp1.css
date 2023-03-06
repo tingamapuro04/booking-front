@@ -1,0 +1,31 @@
+.navigation {
+  width: 18%;
+  background: red;
+}
+
+.layout {
+  width: 100%;
+  display: flex;
+  margin: 1px;
+  padding: 0;
+  background: blue;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 35%;
+}
+
+.nav_link {
+  padding: 3%;
+  font-size: 1.5rem;
+  font-weight: 550;
+  background: green;
+  margin-bottom: 10px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 8%;
+}
