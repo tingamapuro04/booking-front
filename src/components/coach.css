@@ -1,0 +1,20 @@
+.allCoaches {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.tile {
+  display: flex;
+  width: 95%;
+  margin: 2% auto;
+  background: black;
+  padding: 1%;
+}
+
+.oneCoach {
+  background: grey;
+  margin-right: 1%;
+  width: 33.3%;
+  text-align: center;
+  padding: 1%;
+}

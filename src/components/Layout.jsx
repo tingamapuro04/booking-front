@@ -7,7 +7,7 @@ import './comp1.css';
 const Layout = (props) => (
   <div className="layout">
     <Navigation />
-    <main>
+    <main className="main">
       { props.children }
     </main>
   </div>

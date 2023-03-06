@@ -5,18 +5,20 @@
 }
 
 .layout {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   margin: 1px;
   padding: 0;
-  background: blue;
   height: 100vh;
+}
+
+.main {
+  width: 82%;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  /* text-align: center; */
   margin-top: 35%;
   margin-left: 10%;
 }
