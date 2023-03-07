@@ -1,7 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getCoachData = createAsyncThunk('coaches/coaches', async () => {
-  const response = await fetch('http://localhost:3001/coaches.json');
+  const response = await fetch(
+    'https://booking-app-7i9f.onrender.com/api/v1/coaches',
+    {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+      },
+    },
+  );
+
   const data = await response.json();
   return data;
 });

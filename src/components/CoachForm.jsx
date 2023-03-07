@@ -12,34 +12,33 @@ const CoachForm = () => {
     setName('');
     setDescription('');
     setCity('');
-    setImage(null);
+    setImage('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:3001/coaches',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          coach: {
-            name,
-            description,
-            city,
-            image,
-          },
-        }),
-      })
+    fetch('https://booking-app-7i9f.onrender.com/api/v1/coaches', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+      },
+      body: JSON.stringify({
+        name,
+        description,
+        city,
+        image,
+      }),
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
         }
+        console.log(response);
         throw new Error('Network response was not ok.');
       })
       .then((response) => console.log(response))
-      .catch(() => console.log('There was an error.'));
+      .catch((response) => console.log(response));
     resetForm();
   };
 
@@ -53,6 +52,7 @@ const CoachForm = () => {
           </label>
           <input
             onChange={(e) => setName(e.target.value)}
+            value={name}
             type="text"
             className="form-control"
             id="exampleInputEmail1"
@@ -64,6 +64,7 @@ const CoachForm = () => {
           </label>
           <input
             onChange={(e) => setDescription(e.target.value)}
+            value={description}
             type="text"
             className="form-control"
             id="description"
@@ -75,6 +76,7 @@ const CoachForm = () => {
           </label>
           <input
             onChange={(e) => setCity(e.target.value)}
+            value={city}
             type="text"
             className="form-control"
             id="city"
@@ -85,8 +87,9 @@ const CoachForm = () => {
             Coach Image
           </label>
           <input
-            onChange={(e) => setImage(e.target.files[0])}
-            type="file"
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+            type="text"
             className="form-control"
             id="inputGroupFile02"
           />

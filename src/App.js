@@ -1,7 +1,7 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Registration from './components/Registration';
 import Home from './components/Home';
 import NoPage from './components/NoPage';
@@ -9,16 +9,16 @@ import NoPage from './components/NoPage';
 import Coaches from './components/Coaches';
 import SignUp from './components/SignUp';
 import Coach from './components/Coach';
-// import { getCoachData } from './slices/allSlice';
+import { getCoachData } from './slices/allSlice';
 import ReserveForm from './components/ReserveForm';
 import Layout from './components/Layout';
 import CoachForm from './components/CoachForm';
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getCoachData());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCoachData());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
