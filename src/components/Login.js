@@ -9,7 +9,7 @@ const Login = () => (
     <br />
     <Form />
     <div className="container mt-5 d-flex justify-content-evenly align-items-center">
-      <p className="fs-4">Dont Have an account yet?</p>
+      <p className="fs-4">Don&apos;t Have an account yet?</p>
 
       <Link to="/signup">SIGN UP</Link>
     </div>

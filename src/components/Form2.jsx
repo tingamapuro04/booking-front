@@ -45,8 +45,9 @@ const Form2 = () => {
       })
       .then((response) => {
         // dispatch(addUser(response.user));
+        localStorage.setItem('user', JSON.stringify(response.token));
         console.log(response);
-        navigate('/home');
+        navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
     resetForm();

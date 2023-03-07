@@ -12,9 +12,9 @@ const SignUp = () => (
     </div>
 
     <div className="container mt-5 d-flex justify-content-evenly align-items-center">
-      <p className="fs-4">Dont Have an account yet?</p>
+      <p className="fs-4">Already have an account?</p>
 
-      <Link to="/">SIGN UP</Link>
+      <Link to="/">SIGN IN</Link>
     </div>
   </div>
 );

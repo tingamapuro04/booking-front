@@ -22,7 +22,7 @@ const Coaches = () => {
     <>
       <div className="allCoaches">
         <h1>MOST POPULAR COACHES</h1>
-        <p>Please one your choice</p>
+        <p>Please pick one your choice</p>
         <div className="tile">
           {coaches.map((coach) => (
             <div

@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const resetForm = () => {
-    setEmail('');
+    setUsername('');
     setPassword('');
   };
 
@@ -22,7 +22,7 @@ const Form = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
+          username,
           password,
         }),
       },
@@ -34,9 +34,10 @@ const Form = () => {
         }
         throw new Error('Network response was not ok.');
       })
-      .then(() => {
-        console.log(response)
-        navigate('/home');
+      .then((response) => {
+        localStorage.setItem('user', JSON.stringify(response.token));
+        console.log(response);
+        navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
     resetForm();
@@ -47,12 +48,12 @@ const Form = () => {
       <div className="mb-3">
         <input
           className="form-control p-2"
-          placeholder="Enter your email address"
+          placeholder="Enter your user name"
           name="username"
           id="username"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           type="text"
         />
         <input
