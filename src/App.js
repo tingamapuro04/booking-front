@@ -13,6 +13,7 @@ import { getCoachData } from './slices/allSlice';
 import ReserveForm from './components/ReserveForm';
 import Layout from './components/Layout';
 import CoachForm from './components/CoachForm';
+import DeleteCoach from './components/DeleteCoach';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function App() {
           <Route path="/coaches/:id" element={<Coach />} />
           <Route path="/coaches/post_coach" element={<CoachForm />} />
           <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
+          <Route path="remove_coach" element={<DeleteCoach />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>

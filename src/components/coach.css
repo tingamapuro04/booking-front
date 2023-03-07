@@ -11,6 +11,10 @@
   padding: 1%;
 }
 
+.tile1 {
+  display: flex;
+}
+
 .oneCoach {
   background: grey;
   margin-right: 1%;

@@ -1,33 +1,31 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CoachForm = () => {
-  const mobutu = "Mobutu";
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [city, setCity] = useState("");
-  const [image, setImage] = useState("");
+  const mobutu = 'Mobutu';
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [city, setCity] = useState('');
+  const [image, setImage] = useState('');
 
   const resetForm = () => {
-    setName("");
-    setDescription("");
-    setCity("");
-    setImage("");
+    setName('');
+    setDescription('');
+    setCity('');
+    setImage('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name);
-    console.log(description);
-    console.log(city);
-    console.log(image);
     fetch(
-      "https://booking-app-7i9f.onrender.com/api/v1/coaches",
+      'https://booking-app-7i9f.onrender.com/api/v1/coaches',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("user"))}`,
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
         },
         body: JSON.stringify({
           name,
@@ -36,18 +34,21 @@ const CoachForm = () => {
           city,
         }),
       },
-      { withCredentials: true }
+      { withCredentials: true },
     )
       .then((response) => {
         if (response.ok) {
           return response.json();
         }
         console.log(response);
-        throw new Error("Network response was not ok.");
+        throw new Error('Network response was not ok.');
       })
-      .then((response) => console.log(response))
+      .then(() => {
+        window.location.reload();
+      })
       .catch((response) => console.log(response));
     resetForm();
+    navigate('/coaches');
   };
 
   return (

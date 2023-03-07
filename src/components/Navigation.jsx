@@ -17,14 +17,14 @@ const Navigation = () => (
       </div>
 
       <div>
-        <Link className="nav_link" to="/home">
-          HOME
+        <Link className="nav_link" to="/coaches/post_coach">
+          ADD COACH
         </Link>
       </div>
 
       <div>
-        <Link className="nav_link" to="/coaches/post_coach">
-          ADD COACH
+        <Link className="nav_link" to="/remove_coach">
+          REMOVE COACH
         </Link>
       </div>
     </nav>
