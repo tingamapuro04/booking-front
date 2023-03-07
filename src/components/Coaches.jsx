@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -32,13 +33,12 @@ const Coaches = () => {
                 name: coach.name,
                 id: coach.id,
                 description: coach.description,
-                city: coach.city,
+                photo: coach.image,
               })}
             >
+              <img src={coach.image} alt="Coach image" />
               <h1>{coach.name}</h1>
-              <h1>{coach.id}</h1>
               <p>{coach.description}</p>
-              <p>{coach.city}</p>
               <div>
                 <p>
                   Hello, I am
