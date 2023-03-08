@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const par = localStorage.getItem('curr_coach') !== null
@@ -7,10 +6,10 @@ const par = localStorage.getItem('curr_coach') !== null
   : {};
 
 const ReserveForm = () => {
-  // const currUser = useSelector((state) => state.current_user.data);
   const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
+  const currUser = JSON.parse(localStorage.getItem('curr_user'));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,12 +47,23 @@ const ReserveForm = () => {
       <div>
         <h1 className="text-center text-dark">Reserve a Coach</h1>
         <p className="text-center w-75 text-dark m-auto">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ulla
-          nulla iure accusantium doloribus,
-          officiis ut est autem aliquid natus fugiat eaque ad sit quod?
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ulla nulla
+          iure accusantium doloribus, officiis ut est autem aliquid natus fugiat
+          eaque ad sit quod?
         </p>
       </div>
-      <form className="text-center mt-4 bg-body-secondary p-3 d-flex flex-column w-50" onSubmit={handleSubmit}>
+      <form
+        className="text-center mt-4 bg-body-secondary p-3 d-flex flex-column w-50"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="form-control p-3 mb-3"
+          type="text"
+          name="username"
+          id="username"
+          defaultValue={currUser.name}
+          placeholder={currUser.name}
+        />
         <input
           className="form-control p-3 mb-3"
           type="text"

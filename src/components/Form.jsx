@@ -36,6 +36,7 @@ const Form = () => {
       })
       .then((response) => {
         localStorage.setItem('user', JSON.stringify(response.token));
+        localStorage.setItem('curr_user', JSON.stringify({ username }));
         navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
