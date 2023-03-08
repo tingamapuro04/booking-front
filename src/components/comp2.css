@@ -1,0 +1,14 @@
+.Login {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .welcome {
+    display: none;
+  }
+
+  .Login {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+  }
+}

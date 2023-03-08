@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './coach.css';
 
 const par = localStorage.getItem('curr_coach') !== null
   ? JSON.parse(localStorage.getItem('curr_coach'))
@@ -41,7 +42,7 @@ const ReserveForm = () => {
 
   return (
     <div
-      className="container d-flex flex-column bg-success-subtle align-items-center justify-content-center"
+      className="container Reservation d-flex flex-column bg-success-subtle align-items-center justify-content-center"
       style={{ height: '100vh' }}
     >
       <div>
@@ -61,8 +62,8 @@ const ReserveForm = () => {
           type="text"
           name="username"
           id="username"
-          defaultValue={currUser.name}
-          placeholder={currUser.name}
+          defaultValue={currUser.username}
+          placeholder={currUser.username}
         />
         <input
           className="form-control p-3 mb-3"

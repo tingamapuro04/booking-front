@@ -53,7 +53,7 @@ const Form2 = () => {
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           placeholder="Enter your name"
           name="username"
           id="username"
@@ -64,7 +64,7 @@ const Form2 = () => {
         />
 
         <input
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           placeholder="Enter your username"
           name="username"
           id="username"
@@ -76,7 +76,7 @@ const Form2 = () => {
         <input
           type="password"
           name="password"
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           required
           placeholder="Password"
           value={password}
@@ -86,7 +86,7 @@ const Form2 = () => {
           type="password"
           name="passwordConfirmation"
           placeholder="Password Confirmation"
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           value={passwordConfirmation}
           required
           onChange={(e) => setPasswordConfirmation(e.target.value)}

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsFillArrowLeftSquareFill, BsCaretRight } from 'react-icons/bs';
 
 const coach = JSON.parse(localStorage.getItem('current_coach'));
@@ -11,6 +11,8 @@ const Coach = () => {
     window.location.href = `http://localhost:3000/coaches/${coach.id}/reserve`;
   };
 
+  const navigate = useNavigate();
+
   const imgstyle = {
     backgroundImage: `url(${coach.photo})`,
     backgroundSize: 'cover',
@@ -19,7 +21,7 @@ const Coach = () => {
 
   return (
     <div
-      className="d-flex flex-column justify-content-center align-items-center"
+      className="d-flex coach_page flex-column justify-content-center align-items-center"
       style={{ height: '100vh' }}
     >
       <div className="d-flex w-100 px-2">
@@ -62,7 +64,7 @@ const Coach = () => {
         </div>
       </div>
       <div className="d-flex justify-content-between px-3 w-100 mt-5">
-        <button className="btn px-3 btn-success" type="button">
+        <button onClick={() => navigate(-1)} className="btn px-3 btn-success" type="button">
           {' '}
           <BsFillArrowLeftSquareFill />
           {' '}
