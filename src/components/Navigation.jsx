@@ -8,11 +8,10 @@ import { RiMapPinRangeLine } from 'react-icons/ri';
 import './comp1.css';
 
 const Navigation = () => (
-  <div className="navigation">
-    <nav className="nav">
-      <div className="mb-1  main_link px-3 fs-4 fw-bold">
+  <div className="navigation text-wrap">
+    <nav className="nav text-wrap">
+      <div className="mb-1 reservation w-100 main_link px-3 fs-5 fw-bold">
         <NavLink
-          activeClassName="active"
           className=" text-decoration-none text-white"
           to="/coaches"
         >
@@ -20,13 +19,13 @@ const Navigation = () => (
         </NavLink>
       </div>
 
-      <div className="mb-1 px-3 fs-4 fw-bold">
+      <div className="mb-1 reservation w-100 px-3 fs-5 fw-bold">
         <Link className="text-decoration-none text-dark" to="/remove_coach">
           REMOVE COACH
         </Link>
       </div>
 
-      <div className="mb-1 fs-4 px-3 fw-bold">
+      <div className="mb-1 reservation w-100 fs-5 px-3 fw-bold">
         <Link
           className="text-decoration-none text-dark"
           to="/coaches/post_coach"
@@ -34,12 +33,12 @@ const Navigation = () => (
           ADD COACH
         </Link>
       </div>
-      <div className="mb-1 fs-4 px-3 fw-bold">
+      <div className="mb-1 reservation d-flex text-wrap fs-5 px-3 fw-bold">
         <Link
-          className="text-decoration-none text-dark"
+          className="text-decoration-none reservation text-wrap text-dark"
           to="/coaches/post_coach"
         >
-          RESERVATIONS
+          <p className="text-wrap">RESERVATIONS</p>
         </Link>
       </div>
     </nav>

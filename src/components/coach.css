@@ -16,11 +16,12 @@
 
 .tile1 {
   display: flex;
+  overflow-y: hidden;
 }
 
 .oneCoach {
   flex: 0 0 auto;
-  margin-right: 1%;
+  margin-right: 3%;
   width: 33.3%;
   text-align: center;
   padding: 1%;
@@ -38,4 +39,8 @@
   border: none;
   border-radius: 8px;
   background-color: red;
+}
+
+.coachForm {
+  margin-top: 10%;
 }

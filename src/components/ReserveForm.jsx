@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
 
 const par = localStorage.getItem('curr_coach') !== null
   ? JSON.parse(localStorage.getItem('curr_coach'))
   : {};
 
 const ReserveForm = () => {
-  const currUser = useSelector((state) => state.current_user.data);
-  const navigate = useNavigate();
+  // const currUser = useSelector((state) => state.current_user.data);
+  // const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  console.log(currUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3001/coaches/${par.id}/reservations`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    fetch(
+      `https://booking-app-7i9f.onrender.com/api/v1/coaches/${par.id}/reserves`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+        },
+        body: JSON.stringify({
+          date,
+          city,
+        }),
       },
-      body: JSON.stringify({
-        date,
-        city,
-      }),
-    })
+    )
       .then((response) => {
         if (response.ok) {
           return response.json();
         }
         throw new Error('Network response was not ok.');
       })
-      .then(() => {
-        navigate(-1);
+      .then((response) => {
+        // navigate(-1);
+        console.log(response);
       })
       .catch((error) => console.log(error.message));
   };

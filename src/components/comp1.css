@@ -4,7 +4,7 @@
 }
 
 .layout {
-  /* width: 100%; */
+  width: 100%;
   display: flex;
   margin: 1px;
   padding: 0;
@@ -79,4 +79,10 @@
 
 .btn {
   background-color: rgb(102, 156, 20);
+}
+
+.reservation {
+  overflow-wrap: break-word;
+  width: 100%;
+  text-size-adjust: 100%;
 }

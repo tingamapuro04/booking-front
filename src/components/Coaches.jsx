@@ -15,17 +15,12 @@ const Coaches = () => {
   const coaches = useSelector((state) => state.allcoaches.data);
 
   const handleWheel = (event) => {
-    console.log(event);
-    console.log('Scrolling');
     const container = event.currentTarget;
     if (!container) return;
     const delta = Math.sign(event.deltaY);
-    console.log('Delta', delta);
     const distance = 500;
 
     container.scrollLeft += delta * distance;
-    // container.scrollRight += delta * distance;
-    console.log('scrool left', container.scrollLeft);
   };
 
   const handleClick = (e) => () => {

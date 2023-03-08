@@ -33,10 +33,10 @@ const DeleteCoach = () => {
     <div className="d-flex flex-column">
       {coaches.map((coach) => (
         <div
-          className="tile1 bg-white shadow-md mx-3 mb-2 d-flex justify-content-between px-2 align-items-center"
+          className="tile1 bg-body-secondary shadow-md mx-3 mb-2 d-flex justify-content-between px-2 align-items-center"
           key={coach.id}
         >
-          <h1>{coach.name}</h1>
+          <h6>{coach.name}</h6>
           <button onClick={() => handleDelete(coach.id)} className="btn1 btn-danger" type="button">
             Remove
           </button>

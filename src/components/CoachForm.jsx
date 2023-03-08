@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './coach.css';
 
 const CoachForm = () => {
-  const mobutu = 'Mobutu';
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -52,8 +52,7 @@ const CoachForm = () => {
   };
 
   return (
-    <div className="container w-75">
-      <p>{mobutu}</p>
+    <div className="w-75 mx-auto coachForm">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -63,7 +62,7 @@ const CoachForm = () => {
             onChange={(e) => setName(e.target.value)}
             value={name}
             type="text"
-            className="form-control"
+            className="form-control w-100 border border-dark-subtle"
             id="exampleInputEmail1"
           />
         </div>
@@ -75,7 +74,7 @@ const CoachForm = () => {
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             type="text"
-            className="form-control"
+            className="form-control border border-dark-subtle"
             id="description"
           />
         </div>
@@ -87,7 +86,7 @@ const CoachForm = () => {
             onChange={(e) => setImage(e.target.value)}
             value={image}
             type="text"
-            className="form-control"
+            className="form-control border border-dark-subtle"
             id="city"
           />
         </div>
@@ -99,12 +98,12 @@ const CoachForm = () => {
             onChange={(e) => setCity(e.target.value)}
             value={city}
             type="text"
-            className="form-control"
+            className="form-control border border-dark-subtle"
             id="inputGroupFile02"
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Add Coach
         </button>
       </form>
     </div>
