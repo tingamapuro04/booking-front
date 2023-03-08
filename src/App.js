@@ -14,11 +14,14 @@ import ReserveForm from './components/ReserveForm';
 import Layout from './components/Layout';
 import CoachForm from './components/CoachForm';
 import DeleteCoach from './components/DeleteCoach';
+import { getReservationData } from './slices/reservations';
+import Reservations from './components/Reservations';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCoachData());
+    dispatch(getReservationData());
   }, [dispatch]);
 
   return (
@@ -33,6 +36,7 @@ function App() {
           <Route path="/coaches/post_coach" element={<CoachForm />} />
           <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
           <Route path="remove_coach" element={<DeleteCoach />} />
+          <Route path="/reservations" element={<Reservations />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>

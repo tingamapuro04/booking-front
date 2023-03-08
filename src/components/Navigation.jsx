@@ -36,7 +36,7 @@ const Navigation = () => (
       <div className="mb-1 reservation d-flex text-wrap fs-5 px-3 fw-bold">
         <Link
           className="text-decoration-none reservation text-wrap text-dark"
-          to="/coaches/post_coach"
+          to="/reservations"
         >
           <p className="text-wrap">RESERVATIONS</p>
         </Link>
