@@ -2,7 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+// import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
@@ -14,6 +14,20 @@ const Coaches = () => {
   const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
 
+  const handleWheel = (event) => {
+    console.log(event);
+    console.log('Scrolling');
+    const container = event.currentTarget;
+    if (!container) return;
+    const delta = Math.sign(event.deltaY);
+    console.log('Delta', delta);
+    const distance = 500;
+
+    container.scrollLeft += delta * distance;
+    // container.scrollRight += delta * distance;
+    console.log('scrool left', container.scrollLeft);
+  };
+
   const handleClick = (e) => () => {
     dispatch(addCoach(e));
     navigate(e);
@@ -24,7 +38,7 @@ const Coaches = () => {
       <div className="allCoaches">
         <h1>MOST POPULAR COACHES</h1>
         <p>Please pick one your choice</p>
-        <div className="tile">
+        <div className="tile" onWheel={handleWheel}>
           {coaches.map((coach) => (
             <div
               className="oneCoach"
@@ -62,10 +76,6 @@ const Coaches = () => {
           ))}
         </div>
       </div>
-      {/* <div>
-        <h3>Add a new coach</h3>
-        <CoachForm />
-      </div> */}
     </>
   );
 };

@@ -1,6 +1,5 @@
 .navigation {
   width: 18%;
-  background: red;
   position: relative;
 }
 
@@ -19,6 +18,7 @@
 .nav {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-top: 35%;
   margin-left: 10%;
 }
@@ -27,8 +27,30 @@
   padding: 3%;
   font-size: 1.5rem;
   font-weight: 550;
-  background: green;
-  margin-bottom: 10px;
+  background: rgb(97, 157, 97);
+  margin-top: 1%;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav_link1 {
+  padding: 3%;
+  font-size: 1.5rem;
+  font-weight: 550;
+  background: rgb(97, 157, 97);
+  margin-bottom: 1%;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav_link3 {
+  padding: 2.5%;
+  font-size: 1.5rem;
+  font-weight: 550;
+  background: rgb(97, 157, 97);
+  margin-bottom: 10%;
   display: block;
   color: #fff;
   text-decoration: none;
@@ -48,4 +70,13 @@
 .foot {
   margin-top: 14%;
   font-weight: 550;
+}
+
+.main_link {
+  background-color: rgb(102, 156, 20);
+  color: #fff;
+}
+
+.btn {
+  background-color: rgb(102, 156, 20);
 }

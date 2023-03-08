@@ -5,9 +5,12 @@
 
 .tile {
   display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   width: 95%;
   margin: 2% auto;
-  background: black;
   padding: 1%;
 }
 
@@ -16,13 +19,23 @@
 }
 
 .oneCoach {
-  background: grey;
+  flex: 0 0 auto;
   margin-right: 1%;
   width: 33.3%;
   text-align: center;
   padding: 1%;
+  scroll-snap-align: start;
 }
 
 .coach_image {
   width: 60%;
+}
+
+.btn1 {
+  padding: 0.5% 1%;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  background-color: red;
 }

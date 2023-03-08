@@ -25,9 +25,9 @@ const Coach = () => {
     >
       <div className="d-flex w-100 px-2">
         <div className="coach_image mx-3" style={imgstyle} />
-        <div className="d-flex flex-column align-items-end">
+        <div className="d-flex pb-3 px-2 flex-column align-items-end">
           <div className="text-end">
-            <p>{coach.name}</p>
+            <h4>{coach.name}</h4>
             <p>{coach.description}</p>
           </div>
 
@@ -53,6 +53,13 @@ const Coach = () => {
             <p className="d-inline">MORE COACHES</p>
             <BsCaretRight />
           </Link>
+          <button
+            className="btn btn-success mt-3"
+            onClick={handleClick}
+            type="button"
+          >
+            Reserve Coach
+          </button>
         </div>
       </div>
       <div className="d-flex justify-content-between px-3 w-100 mt-5">
@@ -60,9 +67,6 @@ const Coach = () => {
           {' '}
           <BsFillArrowLeftSquareFill />
           {' '}
-        </button>
-        <button className="btn btn-success" onClick={handleClick} type="button">
-          Reserve
         </button>
       </div>
     </div>

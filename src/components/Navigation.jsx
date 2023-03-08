@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF, FaTiktok } from 'react-icons/fa';
 import { TfiGoogle } from 'react-icons/tfi';
@@ -10,30 +10,55 @@ import './comp1.css';
 const Navigation = () => (
   <div className="navigation">
     <nav className="nav">
-      <div>
-        <Link className="nav_link" to="/coaches">
+      <div className="mb-1  main_link px-3 fs-4 fw-bold">
+        <NavLink
+          activeClassName="active"
+          className=" text-decoration-none text-white"
+          to="/coaches"
+        >
           COACHES
+        </NavLink>
+      </div>
+
+      <div className="mb-1 px-3 fs-4 fw-bold">
+        <Link className="text-decoration-none text-dark" to="/remove_coach">
+          REMOVE COACH
         </Link>
       </div>
 
-      <div>
-        <Link className="nav_link" to="/coaches/post_coach">
+      <div className="mb-1 fs-4 px-3 fw-bold">
+        <Link
+          className="text-decoration-none text-dark"
+          to="/coaches/post_coach"
+        >
           ADD COACH
         </Link>
       </div>
-
-      <div>
-        <Link className="nav_link" to="/remove_coach">
-          REMOVE COACH
+      <div className="mb-1 fs-4 px-3 fw-bold">
+        <Link
+          className="text-decoration-none text-dark"
+          to="/coaches/post_coach"
+        >
+          RESERVATIONS
         </Link>
       </div>
     </nav>
     <div className="social">
-      <BsTwitter className="my-icon" />
-      <FaFacebookF className="my-icon" />
-      <TfiGoogle className="my-icon" />
-      <RiMapPinRangeLine className="my-icon" />
-      <FaTiktok className="my-icon" />
+      <Link className="text-dark" to="https://twitter.com/">
+        <BsTwitter className="my-icon" />
+      </Link>
+      <Link className="text-dark" to="https://web.facebook.com/?_rdc=1&_rdr">
+        <FaFacebookF className="my-icon" />
+      </Link>
+      <Link className="text-dark" to="https://www.google.com/">
+        <TfiGoogle className="my-icon" />
+      </Link>
+      <Link className="text-dark" to="https://www.instagram.com/">
+        <RiMapPinRangeLine className="my-icon" />
+      </Link>
+      <Link className="text-dark" to="https://www.tiktok.com/en/">
+        <FaTiktok className="my-icon" />
+      </Link>
       <div className="foot">
         <p>&copy; 2023 Microverse</p>
       </div>

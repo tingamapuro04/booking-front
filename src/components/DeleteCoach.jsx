@@ -37,7 +37,7 @@ const DeleteCoach = () => {
           key={coach.id}
         >
           <h1>{coach.name}</h1>
-          <button onClick={() => handleDelete(coach.id)} className="btn btn-danger" type="button">
+          <button onClick={() => handleDelete(coach.id)} className="btn1 btn-danger" type="button">
             Remove
           </button>
         </div>
