@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
-import { BsFillArrowLeftSquareFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { BsFillArrowLeftSquareFill, BsCaretRight } from 'react-icons/bs';
 
 const coach = JSON.parse(localStorage.getItem('current_coach'));
 
@@ -10,12 +11,20 @@ const Coach = () => {
     console.log('clicked');
     window.location.href = `http://localhost:3000/coaches/${coach.id}/reserve`;
   };
+
+  const imgstyle = {
+    backgroundImage: `url(${coach.photo})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
   return (
-    <>
-      <div className="d-flex p-5">
-        <div className="coach_image">
-          <img src={coach.photo} alt="Coach image" />
-        </div>
+    <div
+      className="d-flex flex-column justify-content-center align-items-center"
+      style={{ height: '100vh' }}
+    >
+      <div className="d-flex w-100 px-2">
+        <div className="coach_image mx-3" style={imgstyle} />
         <div className="d-flex flex-column align-items-end">
           <div className="text-end">
             <p>{coach.name}</p>
@@ -39,10 +48,15 @@ const Coach = () => {
             <p className="mt-3 p-0">Origin:</p>
             <p>Economics</p>
           </div>
+
+          <Link className="text-dark text-decoration-none fs-5" to="/coaches">
+            <p className="d-inline">MORE COACHES</p>
+            <BsCaretRight />
+          </Link>
         </div>
       </div>
-      <div className="d-flex justify-content-between px-5">
-        <button className="btn p-3 btn-success" type="button">
+      <div className="d-flex justify-content-between px-3 w-100 mt-5">
+        <button className="btn px-3 btn-success" type="button">
           {' '}
           <BsFillArrowLeftSquareFill />
           {' '}
@@ -51,7 +65,7 @@ const Coach = () => {
           Reserve
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
