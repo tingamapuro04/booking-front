@@ -8,7 +8,6 @@ const coach = JSON.parse(localStorage.getItem('current_coach'));
 const Coach = () => {
   const handleClick = () => {
     localStorage.setItem('curr_coach', JSON.stringify({ id: coach.id }));
-    console.log('clicked');
     window.location.href = `http://localhost:3000/coaches/${coach.id}/reserve`;
   };
 

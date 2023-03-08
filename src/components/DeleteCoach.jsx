@@ -20,12 +20,10 @@ const DeleteCoach = () => {
         if (response.ok) {
           return response.json();
         }
-        console.log(response);
         throw new Error('Network response was not ok.');
       })
       .then(() => {
         window.location.reload();
-        console.log('deleted');
       })
       .catch((response) => console.log(response));
   };

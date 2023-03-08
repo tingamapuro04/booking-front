@@ -1,12 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
-// import { addUser } from '../slices/login';
 
 const Form2 = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -44,9 +41,7 @@ const Form2 = () => {
         throw new Error('Network response was not ok.');
       })
       .then((response) => {
-        // dispatch(addUser(response.user));
         localStorage.setItem('user', JSON.stringify(response.token));
-        console.log(response);
         navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
