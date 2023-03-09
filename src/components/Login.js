@@ -4,8 +4,7 @@ import Form from './Form';
 import './comp2.css';
 
 const Login = () => (
-  <div className="container text-center Login d-flex flex-column align-items-center">
-    <h1 className="w-100">We are the Group</h1>
+  <div className="container Login">
     <p className="fw-normal fs-4">Please login to your account</p>
     <br />
     <Form />

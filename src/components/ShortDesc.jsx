@@ -3,7 +3,7 @@ import './comp2.css';
 
 const ShortDesc = () => (
   <div
-    className="container welcome text-wrap overflow-hidden p-4 text-center p-3 mb-2 bg-danger text-white"
+    className="container d-none welcome text-wrap overflow-hidden p-4 text-center p-3 mb-2 bg-danger text-white"
     style={{ height: '90vh' }}
   >
     <h1 className="fw-bolder">Welcome</h1>
