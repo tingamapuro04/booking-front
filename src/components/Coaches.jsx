@@ -53,7 +53,7 @@ const Coaches = () => {
               })}
             >
               <img className="coachImg" src={coach.image} alt="Coach image" />
-              <h2 className="coachName">{coach.name}</h2>
+              <h2 className="coachName mt-3">{coach.name}</h2>
               <p className="coachdesc">{coach.description}</p>
               <div>
                 <div>

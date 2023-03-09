@@ -36,12 +36,12 @@ const Navigation = () => (
           <h6>ADD COACH</h6>
         </NavLink>
       </div>
-      <div className="my-2 reservation d-flex text-wrap fs-5 px-1 fw-bold">
+      <div className="my-2 reservation w-100 fs-5 px-1 fw-bold">
         <NavLink
           className={({ isActive }) => (`text-decoration-none pt-1 ${isActive ? 'text-success' : 'text-dark'}`)}
           to="/reservations"
         >
-          <h6 className="text-wrap">RESERVATIONS</h6>
+          <h6>RESERVATIONS</h6>
         </NavLink>
       </div>
     </nav>
@@ -52,12 +52,9 @@ const Navigation = () => (
       <Link className="text-dark mx-2" to="https://web.facebook.com/?_rdc=1&_rdr">
         <FaFacebookF className="my-icon" />
       </Link>
-      <Link className="text-dark mx-2" to="https://www.instagram.com/">
+      <Link className="text-dark mx-2 insta" to="https://www.instagram.com/">
         <RiMapPinRangeLine className="my-icon" />
       </Link>
-      {/* <Link className="text-dark mx-2" to="https://www.tiktok.com/en/">
-        <FaTiktok className="my-icon" />
-      </Link> */}
       <div className="foot">
         <p>&copy; 2023 Microverse</p>
       </div>
