@@ -1,6 +1,7 @@
 .navigation {
   width: 18%;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .layout {
@@ -86,4 +87,19 @@
   overflow-wrap: break-word;
   width: 100%;
   text-size-adjust: 100%;
+}
+
+.logout {
+  border: none;
+  width: 100%;
+  text-align: start;
+  font-size: 1.3rem;
+  background: transparent;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.logout:hover {
+  color: #e10d0d;
 }

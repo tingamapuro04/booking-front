@@ -45,6 +45,10 @@
   font-family: 'Playfair Display SC', serif;
 }
 
+.remove_coach {
+  margin-top: 5%;
+}
+
 .coachdesc {
   font-family: 'Genos', sans-serif;
   font-weight: 400;
