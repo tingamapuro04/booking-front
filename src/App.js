@@ -27,23 +27,23 @@ function App() {
             element={<Coaches />}
           />
           <Route
-            path="/coaches/:id"
+            path="coaches/:id"
             element={<Coach />}
           />
           <Route
-            path="/post_coach"
+            path="post_coach"
             element={<CoachForm />}
           />
           <Route
-            path="/coaches/:id/reserve"
+            path="coaches/:id/reserve"
             element={<ReserveForm />}
           />
           <Route
-            path="/remove_coach"
+            path="remove_coach"
             element={<DeleteCoach />}
           />
           <Route
-            path="/reservations"
+            path="reservations"
             element={<Reservations />}
           />
           <Route path="*" element={<NoPage />} />
