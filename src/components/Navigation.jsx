@@ -6,7 +6,7 @@ import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF, FaTiktok } from 'react-icons/fa';
 import { RiMapPinRangeLine } from 'react-icons/ri';
 import { ImSwitch } from 'react-icons/im';
-import { TfiGoogle } from 'react-icons/ti';
+import { TfiGoogle } from 'react-icons/tfi';
 import './comp1.css';
 
 const Navigation = () => {
