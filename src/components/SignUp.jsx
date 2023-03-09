@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form2 from './Form2';
-// import ShortDesc from './ShortDesc';
 
 const SignUp = () => (
   <div className="container text-center  bg-secondary-subtle w-100 mt-5 p-4">
