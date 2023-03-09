@@ -31,7 +31,7 @@ const Navigation = () => (
       <div className="my-2 reservation w-100 fs-5 px-1 fw-bold">
         <NavLink
           className={({ isActive }) => (`text-decoration-none pt-1 ${isActive ? 'text-success' : 'text-dark'}`)}
-          to="/coaches/post_coach"
+          to="/post_coach"
         >
           <h6>ADD COACH</h6>
         </NavLink>

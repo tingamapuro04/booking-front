@@ -24,7 +24,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/coaches" element={<Coaches />} />
           <Route path="/coaches/:id" element={<Coach />} />
-          <Route path="/coaches/post_coach" element={<CoachForm />} />
+          <Route path="/post_coach" element={<CoachForm />} />
           <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
           <Route path="remove_coach" element={<DeleteCoach />} />
           <Route path="/reservations" element={<Reservations />} />
