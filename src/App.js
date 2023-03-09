@@ -22,12 +22,30 @@ function App() {
           <Route path="/" element={<Registration />} />
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/coaches" element={<Coaches />} />
-          <Route path="/coaches/:id" element={<Coach />} />
-          <Route path="/post_coach" element={<CoachForm />} />
-          <Route path="/coaches/:id/reserve" element={<ReserveForm />} />
-          <Route path="remove_coach" element={<DeleteCoach />} />
-          <Route path="/reservations" element={<Reservations />} />
+          <Route
+            path="https://mentorcoach.netlify.app/coaches"
+            element={<Coaches />}
+          />
+          <Route
+            path="https://mentorcoach.netlify.app/coaches/:id"
+            element={<Coach />}
+          />
+          <Route
+            path="https://mentorcoach.netlify.app/post_coach"
+            element={<CoachForm />}
+          />
+          <Route
+            path="https://mentorcoach.netlify.app/coaches/:id/reserve"
+            element={<ReserveForm />}
+          />
+          <Route
+            path="https://mentorcoach.netlify.app/remove_coach"
+            element={<DeleteCoach />}
+          />
+          <Route
+            path="https://mentorcoach.netlify.app/reservations"
+            element={<Reservations />}
+          />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Layout>
