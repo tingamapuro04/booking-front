@@ -1,19 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const name = localStorage.getItem('username') !== null ? JSON.parse(localStorage.getItem('username')) : {};
+const users = localStorage.getItem('current_user') !== null
+  ? JSON.parse(localStorage.getItem('current_user'))
+  : {};
 
-const loginSlice = createSlice({
-  name: 'login',
-  initialState: name,
+const userSlice = createSlice({
+  name: 'Users',
+  initialState: {
+    status: 'idle',
+    data: users,
+    error: null,
+  },
   reducers: {
-    login: (state, action) => {
-      const newState = state;
-      newState.username = action.payload;
-      localStorage.setItem('username', JSON.stringify(newState));
+    addUser: (state, action) => {
+      let newState = state;
+      newState = action.payload;
+      localStorage.setItem('current_user', JSON.stringify(newState));
     },
   },
 });
 
-export const { login } = loginSlice.actions;
-const loginRed = loginSlice.reducer;
-export default loginRed;
+export const { addUser } = userSlice.actions;
+
+const user = userSlice.reducer;
+export default user;

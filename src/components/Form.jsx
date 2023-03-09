@@ -1,38 +1,30 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import './comp2.css';
 
 const Form = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // const handleChange = (e) => {
-  //   setName(e.target.value);
-  // };
-
   const resetForm = () => {
-    setEmail('');
+    setUsername('');
     setPassword('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      'http://localhost:3001/sessions',
+      'https://booking-app-7i9f.onrender.com/api/v1/login',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user: {
-            email,
-            password,
-          },
+          username,
+          password,
         }),
       },
       { withCredentials: true },
@@ -44,25 +36,25 @@ const Form = () => {
         throw new Error('Network response was not ok.');
       })
       .then((response) => {
-        // handleSuccessfulAuth(response);
-        navigate('/home');
-        console.log(response);
+        localStorage.setItem('user', JSON.stringify(response.token));
+        localStorage.setItem('curr_user', JSON.stringify({ username }));
+        navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
     resetForm();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login_form" onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control p-2"
-          placeholder="Enter your email address"
+          className="form-control p-2 mb-2"
+          placeholder="Enter your user name"
           name="username"
           id="username"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           type="text"
         />
         <input

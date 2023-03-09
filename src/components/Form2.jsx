@@ -1,22 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Form2 = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
-  // const handleChange = (e) => {
-  //   setName(e.target.value);
-  // };
-
   const resetForm = () => {
-    setEmail('');
+    setName('');
+    setUsername('');
     setPassword('');
     setPasswordConfirmation('');
   };
@@ -24,18 +19,17 @@ const Form2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      'http://localhost:3001/registrations',
+      'https://booking-app-7i9f.onrender.com/api/v1/signup',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user: {
-            email,
-            password,
-            password_confirmation: passwordConfirmation,
-          },
+          name,
+          username,
+          password,
+          password_confirmation: passwordConfirmation,
         }),
       },
       { withCredentials: true },
@@ -47,9 +41,9 @@ const Form2 = () => {
         throw new Error('Network response was not ok.');
       })
       .then((response) => {
-        // handleSuccessfulAuth(response);
-        navigate('/home');
-        console.log(response);
+        localStorage.setItem('user', JSON.stringify(response.token));
+        localStorage.setItem('curr_user', JSON.stringify({ name }));
+        navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
     resetForm();
@@ -59,19 +53,30 @@ const Form2 = () => {
     <form onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control p-2"
-          placeholder="Enter your email address"
+          className="form-control mb-2 p-2"
+          placeholder="Enter your name"
           name="username"
           id="username"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+        />
+
+        <input
+          className="form-control mb-2 p-2"
+          placeholder="Enter your username"
+          name="username"
+          id="username"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           type="text"
         />
         <input
           type="password"
           name="password"
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           required
           placeholder="Password"
           value={password}
@@ -81,7 +86,7 @@ const Form2 = () => {
           type="password"
           name="passwordConfirmation"
           placeholder="Password Confirmation"
-          className="form-control p-2"
+          className="form-control mb-2 p-2"
           value={passwordConfirmation}
           required
           onChange={(e) => setPasswordConfirmation(e.target.value)}

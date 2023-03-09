@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginRed from '../slices/login';
+import coaches from '../slices/allSlice';
+import user from '../slices/login';
+import coach from '../slices/coach';
+import myReservations from '../slices/reservations';
 
 const store = configureStore({
   reducer: {
-    login: loginRed,
+    reservations: myReservations,
+    current_user: user,
+    allcoaches: coaches,
+    Onecoach: coach,
   },
 });
 
