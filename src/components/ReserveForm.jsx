@@ -61,8 +61,8 @@ const ReserveForm = () => {
           type="text"
           name="username"
           id="username"
-          defaultValue={currUser.name}
-          placeholder={currUser.name}
+          defaultValue={currUser.username}
+          placeholder={currUser.username}
         />
         <input
           className="form-control p-3 mb-3"

@@ -23,9 +23,9 @@ const Coach = () => {
       style={{ height: '100vh' }}
     >
       <div className="d-flex w-100 px-2">
-        <div className="coach_image mx-3" style={imgstyle} />
+        <div className="coach_image mx-3 col-5" style={imgstyle} />
         <div className="d-flex pb-3 px-2 flex-column align-items-end">
-          <div className="text-end">
+          <div className="text-center">
             <h4>{coach.name}</h4>
             <p>{coach.description}</p>
           </div>

@@ -3,12 +3,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import React, { useRef } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import { TfiGoogle } from 'react-icons/tfi';
 import { addCoach, navigate } from '../slices/coach';
+import { getCoachData } from '../slices/allSlice';
 
 const Coaches = () => {
   const dispatch = useDispatch();
@@ -28,6 +30,10 @@ const Coaches = () => {
     navigate(e);
   };
 
+  useEffect(() => {
+    dispatch(getCoachData());
+  }, [dispatch]);
+
   return (
     <>
       <div className="allCoaches">
@@ -45,22 +51,10 @@ const Coaches = () => {
                 photo: coach.image,
               })}
             >
-              <img src={coach.image} alt="Coach image" />
-              <h1>{coach.name}</h1>
+              <img src={coach.image} alt="Coach image" className="w-100 h-50 rounded-circle img-fluid" />
+              <h2 className="my-5">{coach.name}</h2>
               <p>{coach.description}</p>
-              <div>
-                <p>
-                  Hello, I am
-                  {' '}
-                  {coach.name}
-                  {' '}
-                  from
-                  {' '}
-                  {coach.city}
-                  {' '}
-                  and I would be so
-                  happy to be your coach
-                </p>
+              <div className="mb-4">
                 <div>
                   <BsTwitter className="my-icon" />
                   <FaFacebookF className="my-icon" />
