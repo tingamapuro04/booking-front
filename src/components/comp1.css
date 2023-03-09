@@ -1,6 +1,7 @@
 .navigation {
   width: 38%;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navigation h6 {
@@ -147,4 +148,17 @@
     padding: 5px;
     text-align: center;
   }
+.logout {
+  border: none;
+  width: 100%;
+  text-align: start;
+  font-size: 1.3rem;
+  background: transparent;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.logout:hover {
+  color: #e10d0d;
 }

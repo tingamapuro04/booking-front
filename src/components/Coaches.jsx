@@ -39,7 +39,7 @@ const Coaches = () => {
     <>
       <div className="allCoaches">
         <h1 className="head">MOST POPULAR COACHES</h1>
-        <p>Please pick a coach your choice</p>
+        <p>Please pick a coach of your choice</p>
         <div className="tile" onWheel={handleWheel}>
           {coaches.map((coach) => (
             <div

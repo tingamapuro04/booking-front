@@ -61,9 +61,12 @@ const CoachForm = () => {
             onChange={(e) => setName(e.target.value)}
             value={name}
             type="text"
+            required
             className="form-control w-100 border border-dark-subtle"
             id="exampleInputEmail1"
           />
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
@@ -73,9 +76,14 @@ const CoachForm = () => {
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             type="text"
+            required
+            max={200}
+            min={10}
             className="form-control border border-dark-subtle"
             id="description"
           />
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Please fill out this field.</div>
         </div>
         <div className="mb-3">
           <label htmlFor="city" className="form-label">
@@ -87,18 +95,6 @@ const CoachForm = () => {
             type="text"
             className="form-control border border-dark-subtle"
             id="city"
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="city" className="form-label">
-            Coach City
-          </label>
-          <input
-            onChange={(e) => setCity(e.target.value)}
-            value={city}
-            type="text"
-            className="form-control border border-dark-subtle"
-            id="inputGroupFile02"
           />
         </div>
         <button type="submit" className="btn btn-primary">

@@ -70,6 +70,7 @@ const ReserveForm = () => {
           type="text"
           name="city"
           id="city"
+          required
           value={city}
           placeholder="Select City of Reservation"
           onChange={(e) => setCity(e.target.value)}
@@ -80,6 +81,7 @@ const ReserveForm = () => {
           name="date"
           id="date"
           value={date}
+          required
           placeholder="Select Date of Reservation"
           onChange={(e) => setDate(e.target.value)}
         />
