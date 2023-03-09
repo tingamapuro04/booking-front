@@ -3,10 +3,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Coaches from './Coaches';
-// import ReserveForm from './ReserveForm';
 
 const Home = () => {
-  // const users = JSON.parse(localStorage.getItem('current_user'));
   const coaches = useSelector((state) => state.allcoaches.data);
   const navigate = useNavigate();
   const handleClick = () => {
