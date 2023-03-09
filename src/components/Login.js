@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
+import './comp2.css';
 
 const Login = () => (
-  <div className="container text-bg-light d-flex flex-column align-items-center">
-    <h1 className="mt-5 mb-4">We are the @@Group</h1>
+  <div className="container Login">
     <p className="fw-normal fs-4">Please login to your account</p>
     <br />
     <Form />
-    <div className="container mt-5 d-flex justify-content-evenly align-items-center">
+    <div className="container mt-5 d-flex justify-content-between align-items-center">
       <p className="fs-4">Don&apos;t Have an account yet?</p>
 
       <Link to="/signup">SIGN UP</Link>

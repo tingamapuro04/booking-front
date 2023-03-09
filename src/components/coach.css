@@ -29,8 +29,28 @@
   scroll-snap-align: start;
 }
 
+.head {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
 .coach_image {
   width: 60%;
+}
+
+.coachImg {
+  width: 100%;
+}
+
+.coachName {
+  font-family: 'Playfair Display SC', serif;
+}
+
+.coachdesc {
+  font-family: 'Genos', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.4rem;
 }
 
 .btn1 {
@@ -42,6 +62,49 @@
   background-color: red;
 }
 
+.Reservation {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
 .coachForm {
   margin-top: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .allCoaches {
+    margin: 5%;
+  }
+
+  .tile {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3%;
+  }
+
+  .oneCoach {
+    width: 100%;
+    margin: 3% 1%;
+    padding: 0;
+  }
+
+  .coachImg {
+    margin-bottom: 2%;
+    border-radius: 2%;
+  }
+
+  .coachForm {
+    margin-top: 20%;
+  }
+
+  .remove_coach {
+    margin-top: 40%;
+  }
+
+  .coach_page {
+    font-family: 'Roboto', sans-serif;
+  }
 }

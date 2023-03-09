@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 // import React, { useRef } from 'react';
+
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './coach.css';
@@ -37,8 +38,8 @@ const Coaches = () => {
   return (
     <>
       <div className="allCoaches">
-        <h1>MOST POPULAR COACHES</h1>
-        <p>Please pick one your choice</p>
+        <h1 className="head">MOST POPULAR COACHES</h1>
+        <p>Please pick a coach your choice</p>
         <div className="tile" onWheel={handleWheel}>
           {coaches.map((coach) => (
             <div
@@ -51,10 +52,10 @@ const Coaches = () => {
                 photo: coach.image,
               })}
             >
-              <img src={coach.image} alt="Coach image" className="w-100 h-50 rounded-circle img-fluid" />
-              <h2 className="my-5">{coach.name}</h2>
-              <p>{coach.description}</p>
-              <div className="mb-4">
+              <img className="coachImg" src={coach.image} alt="Coach image" />
+              <h2 className="coachName">{coach.name}</h2>
+              <p className="coachdesc">{coach.description}</p>
+              <div>
                 <div>
                   <BsTwitter className="my-icon" />
                   <FaFacebookF className="my-icon" />

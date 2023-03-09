@@ -35,10 +35,10 @@ const DeleteCoach = () => {
       .catch((response) => console.log(response));
   };
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column remove_coach">
       {coaches.map((coach) => (
         <div
-          className="tile1 bg-body-secondary shadow-md mx-3 mb-2 d-flex justify-content-between px-2 align-items-center"
+          className="tile1 bg-body-secondary shadow-md mx-3 mb-2 d-flex justify-content-between p-2 align-items-center"
           key={coach.id}
         >
           <h6>{coach.name}</h6>

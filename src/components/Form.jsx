@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './comp2.css';
 
 const Form = () => {
   const navigate = useNavigate();
@@ -44,10 +45,10 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login_form" onSubmit={handleSubmit}>
       <div className="mb-3">
         <input
-          className="form-control p-2"
+          className="form-control p-2 mb-2"
           placeholder="Enter your user name"
           name="username"
           id="username"
