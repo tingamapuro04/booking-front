@@ -15,6 +15,7 @@ import { getCoachData } from '../slices/allSlice';
 const Coaches = () => {
   const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
+  console.log(coaches);
 
   const handleWheel = (event) => {
     const container = event.currentTarget;
@@ -40,7 +41,7 @@ const Coaches = () => {
         <h1 className="head">MOST POPULAR COACHES</h1>
         <p>Please pick a coach of your choice</p>
         <div className="tile" onWheel={handleWheel}>
-          {coaches.map((coach) => (
+          {coaches && coaches.map((coach) => (
             <div
               className="oneCoach"
               key={coach.id}
