@@ -2,13 +2,16 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+// import React, { useRef } from 'react';
 
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import { TfiGoogle } from 'react-icons/tfi';
 import { addCoach, navigate } from '../slices/coach';
+import { getCoachData } from '../slices/allSlice';
 
 const Coaches = () => {
   const dispatch = useDispatch();
@@ -28,6 +31,10 @@ const Coaches = () => {
     navigate(e);
   };
 
+  useEffect(() => {
+    dispatch(getCoachData());
+  }, [dispatch]);
+
   return (
     <>
       <div className="allCoaches">
@@ -46,7 +53,7 @@ const Coaches = () => {
               })}
             >
               <img className="coachImg" src={coach.image} alt="Coach image" />
-              <h1 className="coachName">{coach.name}</h1>
+              <h2 className="coachName mt-3">{coach.name}</h2>
               <p className="coachdesc">{coach.description}</p>
               <div>
                 <div>

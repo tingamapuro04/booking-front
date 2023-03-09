@@ -32,6 +32,7 @@ const coachesSlice = createSlice({
         const newState = state;
         newState.status = 'succeeded';
         newState.data = action.payload;
+        // console.log(action.payload);
       })
       .addCase(getCoachData.rejected, (state, action) => {
         const newState = state;

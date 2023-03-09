@@ -1,8 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getReservationData } from '../slices/reservations';
 
 const Reservations = () => {
   const myReservations = useSelector((state) => state.reservations);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getReservationData());
+  }, [dispatch]);
+
   return (
     <div className="container text-center mt-5">
       <h3 className="text-decoration-underline mb-5">My Reservations</h3>
@@ -16,9 +23,9 @@ const Reservations = () => {
           </tr>
         </thead>
         <tbody>
-          {myReservations.data.map((reservation) => (
+          {myReservations.data.map((reservation, index) => (
             <tr key={reservation.id}>
-              <th scope="row">{reservation.id}</th>
+              <th scope="row">{index + 1}</th>
               <td>{reservation.name}</td>
               <td>{reservation.city}</td>
               <td>{reservation.date ? reservation.date.slice(0, 10) : ''}</td>

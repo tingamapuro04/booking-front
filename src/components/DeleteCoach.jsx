@@ -1,9 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCoachData } from '../slices/allSlice';
 import './coach.css';
 
 const DeleteCoach = () => {
+  const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
+
+  useEffect(() => {
+    dispatch(getCoachData());
+  }, [dispatch]);
+
   const handleDelete = (id) => {
     fetch(
       `https://booking-app-7i9f.onrender.com/api/v1/coaches/${id}}`,

@@ -1,6 +1,14 @@
 .navigation {
-  width: 18%;
+  width: 38%;
   position: relative;
+}
+
+.navigation h6 {
+  font-size: 11px;
+}
+
+.navigation .insta {
+  visibility: hidden;
 }
 
 .layout {
@@ -86,4 +94,57 @@
   overflow-wrap: break-word;
   width: 100%;
   text-size-adjust: 100%;
+}
+
+@media (min-width: 420px) {
+  .navigation {
+    width: 28%;
+  }
+
+  .navigation h6 {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  .navigation {
+    width: 22%;
+  }
+
+  .navigation h6 {
+    font-size: 14px;
+  }
+
+  .navigation .insta {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    width: 20%;
+    padding-left: 2px;
+  }
+
+  .navigation h6 {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .navigation {
+    width: 18%;
+  }
+
+  .navigation h6 {
+    font-size: 16px;
+    margin-right: 24px;
+    padding: 2px;
+    text-align: center;
+  }
+
+  .social {
+    padding: 5px;
+    text-align: center;
+  }
 }
