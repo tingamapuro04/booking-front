@@ -98,8 +98,9 @@
 
 @media (min-width: 420px) {
   .navigation {
-  width: 28%;
+    width: 28%;
   }
+
   .navigation h6 {
     font-size: 12px;
   }
@@ -107,11 +108,13 @@
 
 @media (min-width: 640px) {
   .navigation {
-  width: 22%;
+    width: 22%;
   }
+
   .navigation h6 {
     font-size: 14px;
   }
+
   .navigation .insta {
     visibility: visible;
   }
@@ -122,6 +125,7 @@
     width: 20%;
     padding-left: 2px;
   }
+
   .navigation h6 {
     font-size: 16px;
   }
@@ -131,12 +135,14 @@
   .navigation {
     width: 18%;
   }
+
   .navigation h6 {
     font-size: 16px;
-    margin-right:24px;
+    margin-right: 24px;
     padding: 2px;
     text-align: center;
   }
+
   .social {
     padding: 5px;
     text-align: center;
