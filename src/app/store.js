@@ -1,8 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import coaches from '../slices/allSlice';
+import user from '../slices/login';
+import coach from '../slices/coach';
+import myReservations from '../slices/reservations';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    reservations: myReservations,
+    current_user: user,
+    allcoaches: coaches,
+    Onecoach: coach,
   },
 });
+
+export default store;
