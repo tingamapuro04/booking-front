@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const navigate = (data) => {
-  window.location.href = `http://localhost:3000/coaches/${data.id}`;
+  window.location.href = `https://mentorcoach.netlify.app/coaches/${data.id}`;
 };
 
 const coachOne = localStorage.getItem('current_coach') !== null
