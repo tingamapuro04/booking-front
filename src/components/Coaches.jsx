@@ -15,7 +15,6 @@ import { getCoachData } from '../slices/allSlice';
 const Coaches = () => {
   const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
-  console.log(coaches);
 
   const handleWheel = (event) => {
     const container = event.currentTarget;
