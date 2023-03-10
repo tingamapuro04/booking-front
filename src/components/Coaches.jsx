@@ -42,7 +42,7 @@ const Coaches = () => {
         <h1 className="head">MOST POPULAR COACHES</h1>
         <p>Please pick a coach of your choice</p>
         <div className="tile" onWheel={handleWheel}>
-          {coaches.map((coach) => (
+          {coaches && coaches.map((coach) => (
             <div
               className="oneCoach"
               key={coach.id}
