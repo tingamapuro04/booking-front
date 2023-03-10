@@ -44,7 +44,7 @@ const Form2 = () => {
       .then((response) => {
         localStorage.setItem('user', JSON.stringify(response.token));
         localStorage.setItem('curr_user', JSON.stringify({ name }));
-        navigate('https://mentorcoach.netlify.app/coaches');
+        navigate('/coaches');
       })
       .catch((error) => console.log(error.message));
     resetForm();
