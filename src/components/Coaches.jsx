@@ -30,6 +30,7 @@ const Coaches = () => {
   const handleClick = (e) => () => {
     dispatch(addCoach(e));
     navigate(`/coaches/${e.id}`);
+    window.location.reload();
   };
 
   useEffect(() => {
