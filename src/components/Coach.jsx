@@ -1,13 +1,14 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillArrowLeftSquareFill, BsCaretRight } from 'react-icons/bs';
 
 const coach = JSON.parse(localStorage.getItem('current_coach'));
+console.log(coach);
 
 const Coach = () => {
   const navigate = useNavigate();
-
   const handleClick = () => {
     localStorage.setItem('curr_coach', JSON.stringify({ id: coach.id }));
     navigate(`/coaches/${coach.id}/reserve`);
