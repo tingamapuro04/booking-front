@@ -80,6 +80,7 @@ const Form2 = () => {
           className="form-control mb-2 p-2"
           required
           placeholder="Password"
+          min={4}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

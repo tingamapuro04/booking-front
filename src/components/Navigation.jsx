@@ -51,7 +51,7 @@ const Navigation = () => {
             <h6>RESERVATIONS</h6>
           </NavLink>
         </div>
-        <div className="mt-5 mb-1 reservation d-flex text-wrap fs-5 px-3 fw-bold">
+        <div className="mt-2 mb-1 reservation d-flex text-wrap px-3">
           {
             user ? (
               <button onClick={() => LogOut()} className="logout " type="button">

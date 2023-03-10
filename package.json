@@ -1,5 +1,6 @@
 {
   "name": "booking-front",
+  "proxy": "https://booking-app-7i9f.onrender.com/api/v1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

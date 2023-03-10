@@ -5,15 +5,17 @@
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import { TfiGoogle } from 'react-icons/tfi';
-import { addCoach, navigate } from '../slices/coach';
+import { addCoach } from '../slices/coach';
 import { getCoachData } from '../slices/allSlice';
 
 const Coaches = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const coaches = useSelector((state) => state.allcoaches.data);
 
   const handleWheel = (event) => {
@@ -27,7 +29,8 @@ const Coaches = () => {
 
   const handleClick = (e) => () => {
     dispatch(addCoach(e));
-    navigate(e);
+    navigate(`/coaches/${e.id}`);
+    window.location.reload();
   };
 
   useEffect(() => {
