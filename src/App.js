@@ -14,43 +14,41 @@ import CoachForm from './components/CoachForm';
 import DeleteCoach from './components/DeleteCoach';
 import Reservations from './components/Reservations';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Registration />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route
-            path="/coaches"
-            element={<Coaches />}
-          />
-          <Route
-            path="/coaches/:id"
-            element={<Coach />}
-          />
-          <Route
-            path="/post_coach"
-            element={<CoachForm />}
-          />
-          <Route
-            path="/coaches/:id/reserve"
-            element={<ReserveForm />}
-          />
-          <Route
-            path="/remove_coach"
-            element={<DeleteCoach />}
-          />
-          <Route
-            path="/reservations"
-            element={<Reservations />}
-          />
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Registration />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/coaches"
+          element={<Coaches />}
+        />
+        <Route
+          path="/coaches/:id"
+          element={<Coach />}
+        />
+        <Route
+          path="/coaches/post_coach"
+          element={<CoachForm />}
+        />
+        <Route
+          path="/coaches/:id/reserve"
+          element={<ReserveForm />}
+        />
+        <Route
+          path="/remove_coach"
+          element={<DeleteCoach />}
+        />
+        <Route
+          path="/reservations"
+          element={<Reservations />}
+        />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+    </Layout>
+  </BrowserRouter>
+);
 
 export default App;
