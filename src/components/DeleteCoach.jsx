@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getCoachData } from '../slices/allSlice';
 import './coach.css';
 
 const DeleteCoach = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const coaches = useSelector((state) => state.allcoaches.data);
 
@@ -31,7 +33,8 @@ const DeleteCoach = () => {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
-        window.location.reload();
+        // window.location.reload();
+        navigate('/coaches');
       })
       .catch((response) => console.log(response));
   };

@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsFillArrowLeftSquareFill, BsCaretRight } from 'react-icons/bs';
 
 const coach = JSON.parse(localStorage.getItem('current_coach'));
-console.log(coach);
 
 const Coach = () => {
   const navigate = useNavigate();

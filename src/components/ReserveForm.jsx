@@ -7,11 +7,12 @@ const par = localStorage.getItem('curr_coach') !== null
   ? JSON.parse(localStorage.getItem('curr_coach'))
   : {};
 
+const currUser = JSON.parse(localStorage.getItem('curr_user'));
+
 const ReserveForm = () => {
   const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
-  const currUser = JSON.parse(localStorage.getItem('curr_user'));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ const ReserveForm = () => {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
-        navigate(-1);
+        navigate('/reservations');
       })
       .catch((error) => console.log(error.message));
   };
@@ -63,8 +64,8 @@ const ReserveForm = () => {
           type="text"
           name="username"
           id="username"
-          defaultValue={currUser.username}
-          placeholder={currUser.username}
+          defaultValue={currUser.username ? currUser.username : ''}
+          placeholder={currUser.username ? currUser.username : 'Username'}
         />
         <input
           className="form-control p-3 mb-3"

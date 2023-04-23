@@ -30,41 +30,43 @@ const Coaches = () => {
   const handleClick = (e) => () => {
     dispatch(addCoach(e));
     navigate(`/coaches/${e.id}`);
+    window.location.reload();
   };
 
   useEffect(() => {
     dispatch(getCoachData());
-  }, [dispatch]);
+  }, [coaches, dispatch]);
 
   return (
     <>
       <div className="allCoaches">
         <h1 className="head">MOST POPULAR COACHES</h1>
-        <p>Please pick a coach of your choice</p>
+        <p>Please pick Ⰶ a coach 🐬 of your choice 🇧🇷︎ ♥️</p>
         <div className="tile" onWheel={handleWheel}>
-          {coaches && coaches.map((coach) => (
-            <div
-              className="oneCoach"
-              key={coach.id}
-              onClick={handleClick({
-                name: coach.name,
-                id: coach.id,
-                description: coach.description,
-                photo: coach.image,
-              })}
-            >
-              <img className="coachImg" src={coach.image} alt="Coach image" />
-              <h2 className="coachName mt-3">{coach.name}</h2>
-              <p className="coachdesc">{coach.description}</p>
-              <div>
+          {coaches
+            && coaches.map((coach) => (
+              <div
+                className="oneCoach"
+                key={coach.id}
+                onClick={handleClick({
+                  name: coach.name,
+                  id: coach.id,
+                  description: coach.description,
+                  photo: coach.image,
+                })}
+              >
+                <img className="coachImg" src={coach.image} alt="Coach image" />
+                <h2 className="coachName mt-3">{coach.name}</h2>
+                <p className="coachdesc">{coach.description}</p>
                 <div>
-                  <BsTwitter className="my-icon" />
-                  <FaFacebookF className="my-icon" />
-                  <TfiGoogle className="my-icon" />
+                  <div>
+                    <BsTwitter className="my-icon" />
+                    <FaFacebookF className="my-icon" />
+                    <TfiGoogle className="my-icon" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>
