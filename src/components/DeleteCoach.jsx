@@ -15,28 +15,30 @@ const DeleteCoach = () => {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    fetch(
-      `https://booking-app-7i9f.onrender.com/api/v1/coaches/${id}}`,
-      {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+    try {
+      fetch(
+        `https://booking-app-7i9f.onrender.com/api/v1/coaches/${id}}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+          },
         },
-      },
-      { withCredentials: true },
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(() => {
-        // window.location.reload();
-        navigate('/coaches');
-      })
-      .catch((response) => console.log(response));
+        { withCredentials: true },
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(() => {
+          navigate('/coaches');
+        });
+    } catch (error) {
+      console.error('error', error);
+    }
   };
   return (
     <div className="d-flex flex-column  remove_coach">
