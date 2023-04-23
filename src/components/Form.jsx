@@ -16,33 +16,36 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      'https://booking-app-7i9f.onrender.com/api/v1/login',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      fetch(
+        'https://booking-app-7i9f.onrender.com/api/v1/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
         },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      },
-      { withCredentials: true },
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then((response) => {
-        localStorage.setItem('user', JSON.stringify(response.token));
-        localStorage.setItem('curr_user', JSON.stringify({ username }));
-        navigate('/coaches');
-        window.location.reload();
-      })
-      .catch((error) => console.log(error.message));
+        { withCredentials: true },
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then((response) => {
+          localStorage.setItem('user', JSON.stringify(response.token));
+          localStorage.setItem('curr_user', JSON.stringify({ username }));
+          navigate('/coaches');
+          window.location.reload();
+        });
+    } catch (error) {
+      console.error('Error', error);
+    }
     resetForm();
   };
 

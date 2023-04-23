@@ -20,33 +20,36 @@ const CoachForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      'https://booking-app-7i9f.onrender.com/api/v1/coaches',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+    try {
+      fetch(
+        'https://booking-app-7i9f.onrender.com/api/v1/coaches',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+          },
+          body: JSON.stringify({
+            name,
+            description,
+            image,
+            city,
+          }),
         },
-        body: JSON.stringify({
-          name,
-          description,
-          image,
-          city,
-        }),
-      },
-      { withCredentials: true },
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(() => {
-        window.location.reload();
-      })
-      .catch((response) => console.log(response));
+        { withCredentials: true },
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(() => {
+          window.location.reload();
+        });
+    } catch (error) {
+      console.error('Error', error);
+    }
     resetForm();
     navigate('/coaches');
   };

@@ -16,30 +16,33 @@ const ReserveForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `https://booking-app-7i9f.onrender.com/api/v1/coaches/${par.id}/reserves`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+    try {
+      fetch(
+        `https://booking-app-7i9f.onrender.com/api/v1/coaches/${par.id}/reserves`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${JSON.parse(localStorage.getItem('user'))}`,
+          },
+          body: JSON.stringify({
+            date,
+            city,
+          }),
         },
-        body: JSON.stringify({
-          date,
-          city,
-        }),
-      },
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(() => {
-        navigate('/reservations');
-      })
-      .catch((error) => console.log(error.message));
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(() => {
+          navigate('/reservations');
+        });
+    } catch (error) {
+      console.error('Error', error);
+    }
   };
 
   return (
