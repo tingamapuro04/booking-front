@@ -6,6 +6,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { usePromiseTracker } from 'react-promise-tracker';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
@@ -14,8 +15,10 @@ import { addCoach } from '../slices/coach';
 import { getCoachData } from '../slices/allSlice';
 
 const Coaches = () => {
+  const { promiseInProgress } = usePromiseTracker();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const status = useSelector((state) => state.allcoaches.status);
   const coaches = useSelector((state) => state.allcoaches.data);
 
   const handleWheel = (event) => {
@@ -35,13 +38,14 @@ const Coaches = () => {
 
   useEffect(() => {
     dispatch(getCoachData());
-  }, [coaches, dispatch]);
+  }, [dispatch]);
 
   return (
     <>
+      {promiseInProgress && <p>Loading...</p>}
+      {status === 'succeeded' && (
       <div className="allCoaches">
         <h1 className="head">MOST POPULAR COACHES</h1>
-        <p>Please pick Ⰶ a coach 🐬 of your choice 🇧🇷︎ ♥️</p>
         <div className="tile" onWheel={handleWheel}>
           {coaches
             && coaches.map((coach) => (
@@ -69,6 +73,7 @@ const Coaches = () => {
             ))}
         </div>
       </div>
+      )}
     </>
   );
 };
