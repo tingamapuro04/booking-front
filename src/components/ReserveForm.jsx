@@ -37,7 +37,7 @@ const ReserveForm = () => {
         throw new Error('Network response was not ok.');
       })
       .then(() => {
-        navigate(-1);
+        navigate('/reservations');
       })
       .catch((error) => console.log(error.message));
   };
