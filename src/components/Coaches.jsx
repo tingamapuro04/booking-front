@@ -6,16 +6,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-// import { usePromiseTracker } from 'react-promise-tracker';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
 import { TfiGoogle } from 'react-icons/tfi';
 import { addCoach } from '../slices/coach';
 import { getCoachData } from '../slices/allSlice';
+import LoadingSpinner from './LoadingSpinner';
 
 const Coaches = () => {
-  // const { promiseInProgress } = usePromiseTracker();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const status = useSelector((state) => state.allcoaches.status);
@@ -42,8 +41,7 @@ const Coaches = () => {
 
   return (
     <>
-      {/* {promiseInProgress && <p>Loading...</p>} */}
-      {status === 'loading' && <p>Loading...</p>}
+      {status === 'loading' && <LoadingSpinner />}
       {status === 'succeeded' && (
         <div className="allCoaches">
           <h1 className="head">MOST POPULAR COACHES</h1>
