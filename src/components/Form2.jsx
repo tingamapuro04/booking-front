@@ -19,34 +19,37 @@ const Form2 = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      'https://booking-app-7i9f.onrender.com/api/v1/signup',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    try {
+      fetch(
+        'https://booking-app-7i9f.onrender.com/api/v1/signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            username,
+            password,
+            password_confirmation: passwordConfirmation,
+          }),
         },
-        body: JSON.stringify({
-          name,
-          username,
-          password,
-          password_confirmation: passwordConfirmation,
-        }),
-      },
-      { withCredentials: true },
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then((response) => {
-        localStorage.setItem('user', JSON.stringify(response.token));
-        localStorage.setItem('curr_user', JSON.stringify({ name }));
-        navigate('/coaches');
-      })
-      .catch((error) => console.log(error.message));
+        { withCredentials: true },
+      )
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then((response) => {
+          localStorage.setItem('user', JSON.stringify(response.token));
+          localStorage.setItem('curr_user', JSON.stringify({ name }));
+          navigate('/coaches');
+        });
+    } catch (error) {
+      console.error('Error', error);
+    }
     resetForm();
   };
 
@@ -57,8 +60,8 @@ const Form2 = () => {
           className="form-control mb-2 p-2"
           placeholder="Enter your name"
           name="username"
-          id="username"
           required
+          id="username"
           value={name}
           onChange={(e) => setName(e.target.value)}
           type="text"
@@ -68,8 +71,8 @@ const Form2 = () => {
           className="form-control mb-2 p-2"
           placeholder="Enter your username"
           name="username"
-          id="username"
           required
+          id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           type="text"
