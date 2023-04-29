@@ -6,7 +6,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { usePromiseTracker } from 'react-promise-tracker';
+// import { usePromiseTracker } from 'react-promise-tracker';
 import './coach.css';
 import { BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
@@ -15,7 +15,7 @@ import { addCoach } from '../slices/coach';
 import { getCoachData } from '../slices/allSlice';
 
 const Coaches = () => {
-  const { promiseInProgress } = usePromiseTracker();
+  // const { promiseInProgress } = usePromiseTracker();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const status = useSelector((state) => state.allcoaches.status);
@@ -42,37 +42,42 @@ const Coaches = () => {
 
   return (
     <>
-      {promiseInProgress && <p>Loading...</p>}
+      {/* {promiseInProgress && <p>Loading...</p>} */}
+      {status === 'loading' && <p>Loading...</p>}
       {status === 'succeeded' && (
-      <div className="allCoaches">
-        <h1 className="head">MOST POPULAR COACHES</h1>
-        <div className="tile" onWheel={handleWheel}>
-          {coaches
-            && coaches.map((coach) => (
-              <div
-                className="oneCoach"
-                key={coach.id}
-                onClick={handleClick({
-                  name: coach.name,
-                  id: coach.id,
-                  description: coach.description,
-                  photo: coach.image,
-                })}
-              >
-                <img className="coachImg" src={coach.image} alt="Coach image" />
-                <h2 className="coachName mt-3">{coach.name}</h2>
-                <p className="coachdesc">{coach.description}</p>
-                <div>
+        <div className="allCoaches">
+          <h1 className="head">MOST POPULAR COACHES</h1>
+          <div className="tile" onWheel={handleWheel}>
+            {coaches
+              && coaches.map((coach) => (
+                <div
+                  className="oneCoach"
+                  key={coach.id}
+                  onClick={handleClick({
+                    name: coach.name,
+                    id: coach.id,
+                    description: coach.description,
+                    photo: coach.image,
+                  })}
+                >
+                  <img
+                    className="coachImg"
+                    src={coach.image}
+                    alt="Coach image"
+                  />
+                  <h2 className="coachName mt-3">{coach.name}</h2>
+                  <p className="coachdesc">{coach.description}</p>
                   <div>
-                    <BsTwitter className="my-icon" />
-                    <FaFacebookF className="my-icon" />
-                    <TfiGoogle className="my-icon" />
+                    <div>
+                      <BsTwitter className="my-icon" />
+                      <FaFacebookF className="my-icon" />
+                      <TfiGoogle className="my-icon" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
-      </div>
       )}
     </>
   );
