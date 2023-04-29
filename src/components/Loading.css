@@ -11,10 +11,10 @@
 .spinner {
   width: 40px;
   height: 40px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #16afc6;
+  border: 6px solid #f3f3f3;
+  border-top: 4px solid #16afc6;
   border-radius: 50%;
-  animation: spinner 1.5s linear infinite;
+  animation: spinner 1.59s linear infinite;
 }
 
 .spinner-container {
